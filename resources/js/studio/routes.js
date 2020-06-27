@@ -40,6 +40,11 @@ export default [
         component: require('./screens/TopicScreen').default,
     },
     {
+        path: '/topicsAdd',
+        name: 'topics',
+        component: require('./screens/topics/TopicsEdit').default,
+    },
+    {
         path: '/topics/:slug',
         name: 'topic-posts',
         component: require('./screens/TopicPostsScreen').default,

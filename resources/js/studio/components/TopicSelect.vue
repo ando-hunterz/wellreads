@@ -8,9 +8,6 @@
         label="name"
         track-by="slug"
         style="cursor: pointer"
-        :tag-placeholder="trans.app.add_a_new_topic"
-        :taggable="true"
-        @tag="addTopic"
     />
 </template>
 
