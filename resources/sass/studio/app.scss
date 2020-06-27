@@ -1,0 +1,91 @@
+@import 'variables';
+
+// .navbar {
+//     // background: rgba(255, 255, 255, .97);
+//     box-shadow: $box-shadow;
+// }
+
+.primary {
+    fill: $gray-500;
+}
+
+.primary:hover {
+    fill: darken($gray-500, 15%);
+}
+
+
+.topic-btn {
+    color: $gray-500;
+}
+
+.topic-btn:hover {
+    color: darken($gray-500, 15%);
+}
+
+.secondary {
+    fill: $gray-700;
+}
+
+.font-serif {
+    font-family: $font-family-serif;
+}
+
+.font-sans {
+    font-family: $font-family-sans-serif;
+}
+
+
+.action-muted-btn{
+    color:$gray-500;
+}
+.action-muted-btn:hover{
+    color: $gray-700;
+}
+
+.post-card-border{
+    border-bottom: 1.5px solid $gray-700;
+    width: 25%;
+    transition: all .2s ease;
+}
+
+
+
+.card-transparent{
+    transition: transform .2s ease;
+}
+
+.card-transparent:hover {
+    -webkit-transform: translateY(-5px) !important;
+    transform: translateY(-5px) !important;
+    transition: transform .2s ease;
+
+    .post-card-border{
+        width: 100%;
+    }
+}
+
+.card {
+    transition: box-shadow .2s ease,-webkit-transform .3s cubic-bezier(.34,2,.6,1) !important;
+    transition: transform .3s cubic-bezier(.34,2,.6,1),box-shadow .2s ease !important;
+    transition: transform .3s cubic-bezier(.34,2,.6,1),box-shadow .2s ease,-webkit-transform .3s cubic-bezier(.34,2,.6,1) !important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1) !important;
+}
+
+.card:hover {
+    -webkit-transform: translateY(-5px) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.12),0 2px 4px 0 rgba(0,0,0,.08) !important;
+}
+
+
+[v-cloak] {
+    display: none;
+}
+
+@import 'nprogress';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@import '~bootstrap';
+

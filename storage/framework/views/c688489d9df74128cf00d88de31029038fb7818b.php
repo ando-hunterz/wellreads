@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+
+    <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:image" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:card" content="summary">
+
+    <title><?php echo e(config('app.name')); ?></title>
+
+    <link rel="canonical">
+    <link href="<?php echo e(mix('studio.css')); ?>" rel="stylesheet">
+
+    <?php if($scripts['darkMode']): ?>
+        <link rel="stylesheet" id="baseStylesheet" type="text/css" href="<?php echo e(mix('css/app-dark.css')); ?>">
+        <link rel="stylesheet" id="highlightStylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/sunburst.min.css">
+    <?php else: ?>
+        <link rel="stylesheet" id="baseStylesheet" type="text/css" href="<?php echo e(mix('css/app.css')); ?>">
+        <link rel="stylesheet" id="highlightStylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css">
+    <?php endif; ?>
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Karla|Merriweather:400,700">
+
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css">
+</head>
+<body>
+<div id="studio" class="mb-5">
+    <router-view></router-view>
+</div>
+
+<script>
+    window.Studio = <?php echo json_encode($scripts, 15, 512) ?>;
+</script>
+
+<script src="<?php echo e(asset('studio.js')); ?>" defer></script>
+</body>
+</html>
+<?php /**PATH C:\laragon\www\testthis\resources\views/studio/app.blade.php ENDPATH**/ ?>
