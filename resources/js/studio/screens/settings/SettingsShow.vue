@@ -12,7 +12,7 @@
         </navbar>
 
         <main class="py-4">
-            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 my-3">
+            <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 my-3">
                 <div class="d-flex justify-content-between my-3">
                     <h1>{{ trans.app.your_profile }}</h1>
                 </div>

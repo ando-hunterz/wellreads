@@ -8,13 +8,10 @@
         />
 
         <navbar>
-            <router-link slot="extra" :to="{name: 'home'}" class="btn btn-sm btn-outline-secondary">
-                Go home
-            </router-link>
         </navbar>
 
         <div v-if="isReady" class="mt-5 pt">
-            <div class="container my-5 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 align-items-center">
+            <div class="container my-5 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 align-items-center">
                 <div class="row">
                     <div class="col-lg-2">
                         <img :src="avatar" :alt="user.name" width="120" class="rounded-circle shadow-inner">

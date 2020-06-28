@@ -6,9 +6,6 @@
         />
 
         <navbar>
-            <router-link slot="extra" :to="{name: 'home'}" class="btn btn-sm btn-outline-secondary">
-                Go home
-            </router-link>
         </navbar>
 
         <div v-if="isReady" class="mt-5 pt-5">
@@ -20,7 +17,8 @@
                         <span class="border-bottom border-dark pb-2">All Posts</span>
                     </h4>
 
-                    <post-list :posts="posts"></post-list>
+                    <post-list v-if="posts.length > 0" :posts="posts"></post-list>
+                    <h1 v-else class="font-serif"> No Post Found</h1>
                 </main>
             </div>
         </div>

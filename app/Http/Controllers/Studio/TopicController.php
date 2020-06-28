@@ -24,6 +24,12 @@ class TopicController extends BaseController
                     ->get();
     }
 
+    public function getAllTopic(Request $request){
+        return Topic::select(['name', 'slug'])
+                    ->orderBy('name')
+                    ->get();
+    }
+
     /**
      * Show a given topic.
      *

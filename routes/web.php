@@ -33,10 +33,12 @@ Route::namespace('Studio')->group(function() {
 
             Route::prefix('topics')->group(function () {
                 Route::get('/', 'TopicController@index');
+                Route::get('/all', 'TopicController@getAllTopic');
                 Route::get('{slug}', 'TopicController@show');
             });
 
             Route::prefix('users')->group(function () {
+                Route::get('/all','UserController@getAllUser');
                 Route::get('{identifier}', 'UserController@show');
             });
         });

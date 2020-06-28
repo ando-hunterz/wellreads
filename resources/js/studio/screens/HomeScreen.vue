@@ -9,7 +9,7 @@
         </navbar>
 
         <div class="mt-5">
-            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 mt-3">
+            <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 mt-3">
                 <h1 class="font-serif">Welcome Back</h1>
                 <p class="lead text-secondary">{{Studio.user.name}}</p>
 

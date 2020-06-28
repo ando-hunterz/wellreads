@@ -41,7 +41,7 @@ export default [
     },
     {
         path: '/topicsAdd',
-        name: 'topics',
+        name: 'topicsadd',
         component: require('./screens/topics/TopicsEdit').default,
     },
     {

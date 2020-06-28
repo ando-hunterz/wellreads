@@ -13,13 +13,37 @@
     fill: darken($gray-500, 15%);
 }
 
+.search-bar{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: 1.1rem;
+}
+
+.searchList{
+    padding: 5%;
+}
+.search-item-header{
+    margin-top: 2%;
+}
 
 .topic-btn {
     color: $gray-500;
+    font-size: 1.2rem;
 }
-
+.nav-button{
+    outline: 0;
+    border: 0;
+    background: transparent;
+}
 .topic-btn:hover {
     color: darken($gray-500, 15%);
+}
+
+.searchList{
+    position: absolute;
+    z-index: 10022;
+    background-color: white;
 }
 
 .secondary {

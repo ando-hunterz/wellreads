@@ -32,12 +32,12 @@ class UserController extends BaseController
      */
     public function show(Request $request, string $identifier)
     {
-        
+
 
         switch ($this->publicIdentifier()) {
             case 'id':
                 $this->user = User::where('id', $identifier)->first();
-                    
+
                 if ($this->user) {
                     $this->userMeta = UserMeta::where('user_id', $this->user->id)->first();
 
@@ -54,7 +54,7 @@ class UserController extends BaseController
                 break;
         }
 
-       
+
         $posts = Post::where('user_id', $this->user->id)
                      ->published()
                      ->withUserMeta()
@@ -70,6 +70,15 @@ class UserController extends BaseController
             'avatar' => $avatar,
             'summary' => optional($this->userMeta)->summary,
             'posts' => $posts,
+        ]);
+    }
+
+    public function getAllUser(){
+
+        $userAll = User::join('canvas_user_meta','users.id','=','canvas_user_meta.user_id')->get();
+
+        return response()->json([
+            'users' => $userAll
         ]);
     }
 }

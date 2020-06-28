@@ -9,11 +9,11 @@
         </navbar>
 
         <div class="mt-5">
-            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 mt-3">
+            <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 mt-3">
                 <input type="searchQuery" class="search-form" placeholder="Search Here" v-on:keyup='performSearch' v-model="query">
             </div>
 
-            <div v-if="this.searchResult.length > 0" class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 mt-3">
+            <div v-if="this.searchResult.length > 0" class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 mt-3">
                 <div v-for="post in searchResult" :key="post.title">
                     <router-link :to="{ name: 'post', params: { identifier: publicIdentifier(post), slug: post.slug } }" class="text-decoration-none">
                         <div class="card-transparent mb-4 shadow-sm">

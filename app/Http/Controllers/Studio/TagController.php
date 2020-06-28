@@ -24,6 +24,7 @@ class TagController extends BaseController
                    ->get();
     }
 
+
     /**
      * Show a given tag.
      *
