@@ -55,6 +55,11 @@ export default [
         component: require('./screens/UnderConstructScreen').default,
     },
     {
+        path: '/admin/post',
+        name: 'admin-post',
+        component: require('./screens/posts/AdminPost.vue').default,
+    },
+    {
         path: '/help',
         name: 'help',
         component: require('./screens/HelpScreen').default,

@@ -91,7 +91,6 @@
 </script>
 
 <script src="<?php echo e(asset('studio.js')); ?>" defer></script>
-<script src="<?php echo e(asset('funct.js')); ?>"></script>
 </body>
 </html>
 <?php /**PATH C:\laragon\www\testthis\resources\views/studio/app.blade.php ENDPATH**/ ?>

@@ -11,6 +11,14 @@
         </router-link>
       </div>
 
+        <div>
+            <slot name="status"></slot>
+            <slot name="actions"></slot>
+            <slot name="extra"></slot>
+        </div>
+
+
+
       <div v-if="user != null" class="align-items-center">
         <button @click="toggleSearch" class="logo-btn mx-2">
           <img width="25" height="25" class="logo" :src="'/assets//SearchButton.png'" alt />

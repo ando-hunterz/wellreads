@@ -90,6 +90,6 @@
     window.Studio = @json($scripts);
 </script>
 
-<script src="{{  secure_asset('studio.js') }}" defer></script>
+<script src="{{  asset('studio.js') }}" defer></script>
 </body>
 </html>

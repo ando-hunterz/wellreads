@@ -124,14 +124,13 @@
     import {mapGetters} from 'vuex'
     import NProgress from 'nprogress'
     import SeoModal from '../../components/modals/SeoModal'
-    import Navbar from '../../components/Navbar'
+    import WellReadNavbar from '../../components/WellReadNavbar'
     import DeleteModal from '../../components/modals/DeleteModal'
     import VueTextAreaAutosize from 'vue-textarea-autosize'
     import PublishModal from '../../components/modals/PublishModal'
     import SettingsModal from '../../components/modals/SettingsModal'
     import QuillEditor from '../../components/editor/QuillEditor'
     import FeaturedImageModal from '../../components/modals/FeaturedImageModal'
-    import WellReadNavbar from '../../components/WellReadNavbar'
 
     Vue.use(VueTextAreaAutosize)
 
@@ -139,13 +138,12 @@
         name: 'posts-edit',
 
         components: {
-            WellReadNavbar,
             vueHeadful,
             PublishModal,
             FeaturedImageModal,
             DeleteModal,
             QuillEditor,
-            Navbar,
+            WellReadNavbar,
             SeoModal,
             SettingsModal,
         },
@@ -176,7 +174,7 @@
                         NProgress.done()
                     })
                     .catch(error => {
-                        vm.$router.push({name: 'posts'})
+                        vm.$router.push({name: 'admin-post'})
                     })
             })
         },
