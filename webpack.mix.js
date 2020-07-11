@@ -28,5 +28,6 @@ mix.setPublicPath('public')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/app-dark.scss', 'public/css')
     .copy('resources/favicon.ico', 'public')
+    .copyDirectory('resources/icons','public/assets')
     .version();
 

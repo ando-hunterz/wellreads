@@ -7,23 +7,23 @@
 
       <div class="align-item-center">
         <router-link :to="{name: 'home'}">
-          <img width="75" height="35" class="logo" :src="'/storage/icons/WRLogo.png'" alt />
+          <img width="75" height="35" class="logo" :src="'/assets/icons/WRLogo.png'" alt />
         </router-link>
       </div>
 
       <div v-if="user != null" class="align-items-center">
         <button @click="toggleSearch" class="logo-btn mx-2">
-          <img width="25" height="25" class="logo" :src="'/storage/icons/SearchButton.png'" alt />
+          <img width="25" height="25" class="logo" :src="'/assets/icons/SearchButton.png'" alt />
         </button>
         <img
           width="25"
           height="25"
           class="logo mx-2"
-          :src="'/storage/icons/NotificationButton.png'"
+          :src="'/assets/icons/NotificationButton.png'"
           alt
         />
         <router-link :to="{name:'posts-create'}" class="mx-2">
-          <img width="25" height="25" class="logo" :src="'/storage/icons/NewButton.png'" alt />
+          <img width="25" height="25" class="logo" :src="'/assets/icons/NewButton.png'" alt />
         </router-link>
 
         <div class="btn-group">

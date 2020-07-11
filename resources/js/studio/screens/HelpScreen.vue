@@ -25,7 +25,7 @@
                   width="25"
                   height="25"
                   class="logo"
-                  :src="'/storage/icons/SearchButton.png'"
+                  :src="'/assets/icons/SearchButton.png'"
                   alt
                 />
               </div>
