@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header d-flex align-items-center justify-content-between border-0">
-          <img class="user-logo mx-auto" src="/assets/icons/WRLogo.png" alt />
+          <img class="user-logo mx-auto" src="/assets//WRLogo.png" alt />
         </div>
         <div class="well-dropdown-divider"></div>
         <div class="modal-body">

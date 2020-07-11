@@ -47,7 +47,7 @@
                 <div class="col ml-4">
                     <div class="d-flex flex-column">
                         <div class="row my-4">
-                          <img class="logo-white mx-3" src="/assets/icons/LogoPutih.png" alt />
+                          <img class="logo-white mx-3" src="/assets//LogoPutih.png" alt />
                         </div>
                         <div class="row mt-2 mb-4">
                             <div class="btn-group justify-content-between d-flex flex-row footer-nav">
@@ -58,9 +58,9 @@
                             </div>
                         </div>
                         <div class="row my-4">
-                            <a href="" class="ml-3 mr-2"><img src="/assets/icons/IGLogo.png" alt=""></a>
-                            <a href="" class="mx-2"><img src="/assets/icons/YoutubeLogo.png" alt=""></a>
-                            <a href="" class="mx-2" style="width: 50px"><img src="/assets/icons/FacebookLogo.png" alt=""></a>
+                            <a href="" class="ml-3 mr-2"><img src="/assets//IGLogo.png" alt=""></a>
+                            <a href="" class="mx-2"><img src="/assets//YoutubeLogo.png" alt=""></a>
+                            <a href="" class="mx-2" style="width: 50px"><img src="/assets//FacebookLogo.png" alt=""></a>
                         </div>
                     </div>
                 </div>
