@@ -39,11 +39,13 @@ NProgress.configure({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log(to);
-    if(to.name != 'login' && to.name != 'register' && Studio.user == null) next({name: "login"})
-    else if(to.name == 'register' && Studio.user == null) next()
-    else{ NProgress.start()
-    next() }
+    // console.log(to);
+    // if(to.name != 'login' && to.name != 'register' && Studio.user == null) next({name: "login"})
+    // else if(to.name == 'register' && Studio.user == null) next()
+    // else{
+    NProgress.start()
+    next()
+    // }
 })
 
 

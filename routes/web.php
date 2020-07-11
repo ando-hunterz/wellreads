@@ -23,6 +23,7 @@ Route::namespace('Studio')->group(function() {
         Route::prefix('api')->group(function () {
             Route::prefix('posts')->group(function () {
                 Route::get('/', 'PostController@index');
+                Route::get('/popularPost','PostController@getPopularPost');
                 Route::get('{identifier}/{slug}', 'PostController@show')->middleware('Canvas\Http\Middleware\Session');
             });
 

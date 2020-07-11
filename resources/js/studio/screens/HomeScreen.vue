@@ -1,87 +1,147 @@
 <template>
-    <div>
-        <vue-headful
-            title="Studio — A Laravel publishing platform"
-            description="Sometimes creating a blog is easier said than done. With Canvas, it's just easier."
-        />
+  <div class="mb-5">
+    <vue-headful title="WellReads" description="Your Reading Subscribtion" />
 
-        <navbar>
-        </navbar>
-
-        <div class="mt-5">
-            <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 mt-3">
-                <h1 class="font-serif">Welcome Back</h1>
-                <p class="lead text-secondary">{{Studio.user.name}}</p>
-
-                <main role="main" class="mt-5">
-                    <div v-if="posts.length > 0">
-                        <h4 class="mb-4 border-bottom pb-2">
-                            <span class="border-bottom border-dark pb-2">Featured</span>
-                        </h4>
-
-                        <featured-post-list :posts="posts.slice(0, featuredPostCount)"></featured-post-list>
-
-                        <h4 v-if="posts" class="my-4 border-bottom mt-5 pb-2">
-                            <span class="border-bottom border-dark pb-2">All Posts</span>
-                        </h4>
-
-                        <post-list :posts="posts"></post-list>
-                    </div>
-
-                    <div v-else class="col-12">
-                        <p class="lead text-muted text-center mt-5 pt-5">You have no published posts</p>
-                        <p class="lead text-muted text-center mt-1">Write on the go with our mobile-ready app!</p>
-                    </div>
-                </main>
-            </div>
+    <navbar ref="navbar"></navbar>
+    <topic-bar class="mx-3"></topic-bar>
+    <div class="mt-2">
+      <div class="col-10 offset-1">
+        <featured-post-list :posts="posts.slice(0, featuredPostCount)"></featured-post-list>
+        <div class="row mt-3">
+          <a href class="ml-auto mr-3 editor-pick">More Editor's Pick</a>
         </div>
+        <div class="hr-divider mt-3">
+            <hr>
+        </div>
+
+        <div class="row">
+          <div class="col-9 pr-5">
+            <img src="https://picsum.photos/id/237/848/210" />
+            <div class="col-9 popular-content">
+              <h2 class="my-3 py-2">Popular on WellReads</h2>
+
+                <popular-post-list :popPosts="popularPosts"></popular-post-list>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="popular-header mx-auto my-auto px-4 py-4">
+              <h4 class="text-center popular-text">Popular</h4>
+            </div>
+            <div class="d-flex flex-column">
+              <popular-post-side :popPosts="popularPosts"></popular-post-side>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <login-modal
+        ref="profileModal"
+        @logged="updateUser"
+    />
+    <register-modal
+        ref="registerModal"
+        @logged="updateUser"
+    />
+  </div>
+
+
 </template>
 
 <script>
-    import NProgress from 'nprogress'
-    import vueHeadful from 'vue-headful'
-    import Navbar from "../components/Navbar";
-    import PostList from '../components/PostList'
-    import FeaturedPostList from "../components/FeaturedPostList";
+import NProgress from "nprogress";
+import $ from "jquery";
+import vueHeadful from "vue-headful";
+import Navbar from "../components/Navbar";
+import PostList from "../components/PostList";
+import FeaturedPostList from "../components/FeaturedPostList";
+import PopularPostList from "../components/PopularPostList";
+import PopularPostSide from "../components/PopularPostSide";
+import LoginModal from "../components/modals/LoginModal"
+import RegisterModal from "../components/modals/RegisterModal"
+import TopicBar from "../components/TopicBar"
 
-    export default {
-        name: 'home-screen',
+export default {
+  name: "home-screen",
 
-        components: {
-            FeaturedPostList,
-            Navbar,
-            PostList,
-            vueHeadful
-        },
+  components: {
+    TopicBar,
+    LoginModal,
+    RegisterModal,
+    PopularPostSide,
+    PopularPostList,
+    FeaturedPostList,
+    Navbar,
+    PostList,
+    vueHeadful
+  },
 
-        data() {
-            return {
-                featuredPostCount: 4,
-                posts: [],
-            }
-        },
+  data() {
+    return {
+      featuredPostCount: 4,
+      posts: [],
+      popularPosts: [],
+      user: null,
+      email: ""
+    };
+  },
 
-        mounted() {
-            this.fetchPosts()
-        },
-
-        methods: {
-            fetchPosts() {
-                this.request()
-                    .get(Studio.path + '/api/posts')
-                    .then(response => {
-                        this.posts = response.data.posts
-
-                        NProgress.done()
-                    })
-                    .catch(error => {
-                        // Add any error debugging...
-                        this.$router.push({name: 'home'})
-
-                        NProgress.done()
-                    })
-            }
-        }
+  mounted() {
+    this.fetchPosts();
+    NProgress.done();
+    if(Studio.user == null){
+        $(this.$refs.profileModal.$el).modal('show')
+    } else{
+        this.user = Studio.user;
     }
+  },
+
+  methods: {
+    fetchPosts() {
+      this.request()
+        .get(Studio.path + "/api/posts")
+        .then(response => {
+          this.posts = response.data.posts;
+          this.request()
+            .get(Studio.path + "/api/posts/popularPost")
+            .then(responses => {
+              console.log(responses.data.posts);
+              this.popularPosts = responses.data.posts;
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        })
+        .catch(error => {
+          // Add any error debugging...
+          this.$router.push({ name: "home" });
+
+          NProgress.done();
+        });
+    },
+    showRegisterModalFromForm(){
+        $(this.$refs.registerModal.$el).modal('show')
+        this.$refs.registerModal.getEmail()
+    },
+    showRegisterModal(data){
+        $(this.$refs.registerModal.$el).modal('show')
+    },
+    closeRegisterModal(){
+         $(this.$refs.registerModal.$el).modal('hide')
+    },
+    showLoginModal(){
+        $(this.$refs.profileModal.$el).modal('show')
+    },
+    closeLoginModal(){
+         $(this.$refs.profileModal.$el).modal('hide')
+    },
+    updateUser(value){
+        console.log(value)
+        Studio.user = value;
+        this.user = value;
+        this.$refs.navbar.updateUser(value)
+    }
+  }
+};
 </script>

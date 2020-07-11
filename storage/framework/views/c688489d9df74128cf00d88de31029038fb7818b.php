@@ -37,15 +37,61 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css">
 </head>
 <body>
-<div id="studio" class="mb-5">
+<div id="studio">
     <router-view></router-view>
 </div>
+<footer class="mt-auto">
+    <div class="col-11 mx-auto pb-5 footer">
+        <div class="col-offset-1 col">
+            <div class="row">
+                <div class="col ml-4">
+                    <div class="d-flex flex-column">
+                        <div class="row my-4">
+                          <img class="logo-white mx-3" src="/storage/icons/LogoPutih.png" alt />
+                        </div>
+                        <div class="row mt-2 mb-4">
+                            <div class="btn-group justify-content-between d-flex flex-row footer-nav">
+                                <a class="mx-3" href="">About</a>
+                                <a class="mx-3" href="">Writers</a>
+                                <a class="mx-3" href="">Terms</a>
+                                <a class="mx-3" href="">Help</a>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <a href="" class="ml-3 mr-2"><img src="/storage/icons/IGLogo.png" alt=""></a>
+                            <a href="" class="mx-2"><img src="/storage/icons/YoutubeLogo.png" alt=""></a>
+                            <a href="" class="mx-2" style="width: 50px"><img src="/storage/icons/FacebookLogo.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex flex-column mt-5 pt-3">
+                        <div class="row mt-5">
+                            <p>Get Your Freshest Article</p>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="d-flex flex-row">
+                                <input class="email-input" autocomplete="off" type="text" name="Email" id="email-signup" placeholder="Email..">
+                                <button class="email-btn" id="signup-btn" data-toogle="dropdown">Signup</button>
+                            </div>
+                              </div>
+                        </div>
+
+                    </div>
+                </>
+            </div>
+
+
+        </div>
+    </div>
+</footer>
 
 <script>
     window.Studio = <?php echo json_encode($scripts, 15, 512) ?>;
 </script>
 
 <script src="<?php echo e(asset('studio.js')); ?>" defer></script>
+<script src="<?php echo e(asset('funct.js')); ?>"></script>
 </body>
 </html>
 <?php /**PATH C:\laragon\www\testthis\resources\views/studio/app.blade.php ENDPATH**/ ?>

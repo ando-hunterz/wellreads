@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Canvas;
 use Illuminate\Support\Str;
+use Canvas\UserMeta;
 
 class RegisterController extends Controller
 {
@@ -75,7 +76,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -89,8 +89,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $lastId = User::latest()->first('id');
+
         return User::create([
-            'name' => $data['name'],
+            'name' => 'WellReadUser'.($lastId->id+1),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -112,6 +115,11 @@ class RegisterController extends Controller
 
         $userData = auth()->user();
         $userData['avatar'] = $this->generateDefaultGravatar($user->email);
+
+        UserMeta::create([
+            'user_id' => $userData->id,
+            'username' => $userData->name,
+        ]);
 
         if ($response = $this->registered($request, $user)) {
             return $response;

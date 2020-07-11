@@ -5,16 +5,6 @@ export default [
         component: require('./screens/HomeScreen').default,
     },
     {
-        path: '/login',
-        name: 'login',
-        component: require('./screens/LoginScreen.vue').default,
-    },
-    {
-        path: '/register',
-        name: 'register',
-        component: require('./screens/RegisterScreen.vue').default,
-    },
-    {
         path: '/logout',
         name: 'logout',
         component: require('./screens/LoginScreen.vue'),
@@ -23,6 +13,11 @@ export default [
         path: '/search',
         name: 'search',
         component: require('./screens/SearchScreen.vue').default,
+    },
+    {
+        path: '/popular',
+        name: 'popular',
+        component: require('./screens/UnderConstructScreen.vue').default
     },
     {
         path: '/tags',
@@ -62,7 +57,7 @@ export default [
     {
         path: '/help',
         name: 'help',
-        component: require('./screens/UnderConstructScreen').default,
+        component: require('./screens/HelpScreen').default,
     },
     {
         path: '/stats/:id',

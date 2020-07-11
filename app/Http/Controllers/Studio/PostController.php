@@ -6,6 +6,7 @@ use App\User;
 use Canvas\Events\PostViewed;
 use Canvas\Post;
 use Canvas\UserMeta;
+use Canvas\View;
 use Illuminate\Http\Request;
 
 class PostController extends BaseController
@@ -56,6 +57,46 @@ class PostController extends BaseController
         return response()->json([
             'posts' => $posts,
         ]);
+    }
+
+    public function getPopularPost(Request $request)
+    {
+        $posts = Post::published()
+        ->withUserMeta()
+        ->orderByDesc('published_at')
+        ->get();
+
+        $views = collect([]);
+
+        $result = collect(['post','count']);
+
+        foreach($posts as $post)
+        {
+            $view = View::where('post_id', $post->id)->get();
+            $lastThirtyDays = $view->whereBetween('created_at', [
+                today()->subDays(30)->startOfDay()->toDateTimeString(),
+                today()->endOfDay()->toDateTimeString(),
+            ]);
+
+            $view = $view->count();
+
+            $post["count"] = $view;
+        }
+
+        $result = $posts->sortByDesc('count');
+
+
+
+
+         return response()->json(['posts' => $result->values()->all()]);
+
+
+
+
+
+        // return response()->json([
+        //     'posts' => $post,
+        // ]);
     }
 
     /**
